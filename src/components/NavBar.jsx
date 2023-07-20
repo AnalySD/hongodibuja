@@ -3,22 +3,13 @@ import { Menu, MenuButton, Button, MenuList, MenuItem, Flex, Box, Spacer } from 
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import CartWidget from './CartWidget'
 
-
-
-
-
 const NavBar = () => {
   return (
-
-
-
-    <Flex bg="black">
+    <Flex className='NavBar'>
       <Box p="2" bg="#0f1d5c" color="#f0e2e2">
-        HongoDibuja - Store
+        | HongoDibuja ~ Store |
       </Box>
-
       <Spacer />
-
       <Box>
         <Menu>
           <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
@@ -31,9 +22,7 @@ const NavBar = () => {
           </MenuList>
         </Menu>
       </Box>
-
       <Spacer />
-
       <Box p="2" bg="#0f1d5c" color="#f0e2e2">
         <CartWidget />
       </Box>
