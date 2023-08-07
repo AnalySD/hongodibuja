@@ -16,7 +16,7 @@
 
 
 body {
-  border: 5px solid red;
+  /* border: 5px solid red; */
   place-items: center;
 }
 
@@ -61,7 +61,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #b125f1;
 }
 button:focus,
 button:focus-visible {
