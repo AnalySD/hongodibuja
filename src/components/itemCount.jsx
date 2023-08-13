@@ -4,7 +4,7 @@ import { AddIcon, MinusIcon, RepeatClockIcon } from '@chakra-ui/icons'
 
 
 
-const CountBtn = () => {
+const itemCount = () => {
 
     const [counter, setCounter] = useState(0)
 
@@ -34,4 +34,4 @@ const CountBtn = () => {
     )
 }
 
-export default CountBtn
+export default itemCount

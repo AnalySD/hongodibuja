@@ -1,7 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { Card, Center, CardBody, Heading, Stack, Text, Divider, CardFooter } from '@chakra-ui/react'
-import CountBtn from './CountBtn'
+import itemCount from './itemCount'
+
 
 
 
@@ -28,7 +29,11 @@ const ItemDetail = ({ productList }) => {
                   </Stack>
                 </CardBody>
                 <CardFooter>
-                  <CountBtn />
+
+                  <itemCount/>
+                 
+
+
                 </CardFooter>
               </Card>
             </Center>
