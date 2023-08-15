@@ -3,7 +3,7 @@ import { Card, CardBody, Image, Stack, Heading, Text, Divider, CardFooter, Butto
 import { Link } from 'react-router-dom'
 
 
-const Item = ({id, name, description, category }) => {
+const Item = ({id, name, description, price }) => {
 
   return (
     <Center>
@@ -18,8 +18,8 @@ const Item = ({id, name, description, category }) => {
         <Stack mt='6' spacing='3'>
           <Text>
             {description}
-            {category}
           </Text>
+          <Text> {price}</Text>
         </Stack>
       <Divider />
       <CardFooter>

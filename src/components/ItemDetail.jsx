@@ -1,15 +1,13 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { Card, Center, CardBody, Heading, Stack, Text, Divider, CardFooter } from '@chakra-ui/react'
-import itemCount from './itemCount'
+import { Card, Center, CardBody, Heading, Stack, Text, Divider, CardFooter, ButtonGroup } from '@chakra-ui/react'
+import ItemCount from './itemCount'
 
 
-
-
-const ItemDetail = ({ productList }) => {
+const ItemDetail = ({ productS }) => {
 
   const { id } = useParams()
-  const filteredProducts = productList.filter((product) => product.id == id)
+  const filteredProducts = productS.filter((product) => product.id == id)
 
   return (
     <>
@@ -25,14 +23,19 @@ const ItemDetail = ({ productList }) => {
                     <Text>  {p.description} </Text>
                     <Text> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati sed dicta culpa sapiente exercitationem alias optio voluptatem veniam nemo </Text>
                     <Divider />
+                    <Text> {p.price}</Text>
                     <Text> {p.category}</Text>
                   </Stack>
                 </CardBody>
                 <CardFooter>
+                <ButtonGroup size='md' isAttached variant='outline'>
 
-                  <itemCount/>
-                 
+                  <ItemCount id={p.id} name={p.name} price={p.price} />
 
+                  </ButtonGroup>
+
+                
+                
 
                 </CardFooter>
               </Card>

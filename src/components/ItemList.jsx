@@ -11,7 +11,7 @@ const ItemList = ({productS}) => {
                     productS.length > 0 &&
                     productS.map((p) => {
                         return (
-                            <Item key={p.id} id={p.id} name = {p.name} description = {p.description}/> 
+                            <Item key={p.id} id={p.id} name = {p.name} description = {p.description} price = {p.price}/> 
                         )
                     })
                 }
