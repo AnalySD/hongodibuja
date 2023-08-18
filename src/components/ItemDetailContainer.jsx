@@ -1,9 +1,7 @@
 import React from 'react'
 import ItemDetail from './ItemDetail'
 
-
 const ItemDetailContainer = () => {
-   
     const productList = [
         { id: 1, name: "Producto A", description: "Descripcion de producto A", price: 2500, category: "cat1" },
         { id: 2, name: "Producto B", description: "Descripcion de producto B", price: 2000, category: "cat2" },
@@ -24,11 +22,8 @@ const ItemDetailContainer = () => {
             reject(new Error("No hay productos"))
         }
     })
-
     getProducts
         .then((res) => console.log(res)).catch(error => console.error(error))
-
-
     return (
         <>
         <ItemDetail 

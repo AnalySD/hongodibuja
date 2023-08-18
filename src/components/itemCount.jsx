@@ -7,8 +7,7 @@ import { CartContext } from "../context/ShopCartContext"
 
 const ItemCount = ({id, name, price}) => {
     
-    const { cart, setCart } = useContext(CartContext)
-
+    const {cart, setCart } = useContext(CartContext)
     const [counter, setCounter] = useState(0)
 
     const decrement = () => {
@@ -16,7 +15,6 @@ const ItemCount = ({id, name, price}) => {
             setCounter(counter - 1)
         }
     }
-
     const increment = () =>{
         setCounter (counter + 1)
     }
@@ -25,22 +23,22 @@ const ItemCount = ({id, name, price}) => {
     //     console.log({...items, counter})
     // }
 
+
     const addToCart = () => {
-        setCart((items) => {
-            const isInCart = items.find((item) => item.id === id);
-            if (isInCart) {
-                return items.map((item) => {
-                    if (item.id === id) {
-                        return { ...item, quantity: item.quantity + counter }
-                    } else {
-                        return item
-                    }
-                })
-            } else {
-                return [...items, { id, quantity: counter, price, name }]
+        if (counter > 0) {
+            const newItem = {
+                id: id,
+                name: name,
+                price: price,
+                quantity: counter
             }
-        })
+            setCart([...cart, newItem])
+            setCounter(0)
+            console.log('Carrito actualizado:', cart)
+        }
     }
+
+    
 
     return (
         <>
@@ -55,7 +53,7 @@ const ItemCount = ({id, name, price}) => {
             </div>
             <div>
                 <ButtonGroup size='md' isAttached variant='outline'>
-                    <Button onClick={() => addToCart()}> Agregar al carrito </Button>
+                    <Button onClick={addToCart}> Agregar al carrito </Button>
                 </ButtonGroup>
             </div>
 

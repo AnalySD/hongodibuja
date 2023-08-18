@@ -25,7 +25,6 @@ const ItemListContainer = () => {
             reject(new Error("No hay productos"))
         }
     })
-
     getProducts
         .then((res) => console.log(res)).catch(error => console.error(error))
 

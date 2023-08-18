@@ -34,14 +34,9 @@ const ItemDetail = ({ productS }) => {
 
                   </ButtonGroup>
 
-                
-                
-
                 </CardFooter>
               </Card>
             </Center>
-
-
           </div>
         )
       })}
