@@ -8,6 +8,8 @@ const ItemDetail = ({ productS }) => {
 
   const { id } = useParams()
   const filteredProducts = productS.filter((product) => product.id == id)
+  
+  
 
   return (
     <>
@@ -30,7 +32,7 @@ const ItemDetail = ({ productS }) => {
                 <CardFooter>
                 <ButtonGroup size='md' isAttached variant='outline'>
 
-                  <ItemCount id={p.id} name={p.name} price={p.price} />
+                  <ItemCount product={p} />
 
                   </ButtonGroup>
 

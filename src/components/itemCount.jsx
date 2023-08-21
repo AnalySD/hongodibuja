@@ -2,12 +2,14 @@ import { useState, useContext } from 'react'
 import { ButtonGroup, Button, IconButton } from '@chakra-ui/react'
 import { AddIcon, MinusIcon, RepeatClockIcon } from '@chakra-ui/icons'
 import { CartContext } from "../context/ShopCartContext"
+import { Link } from 'react-router-dom'
 
 
 
-const ItemCount = ({id, name, price}) => {
-    
-    const {cart, setCart } = useContext(CartContext)
+
+const ItemCount = ({ product }) => {
+
+    const [cart, setCart] = useContext(CartContext)
     const [counter, setCounter] = useState(0)
 
     const decrement = () => {
@@ -15,30 +17,35 @@ const ItemCount = ({id, name, price}) => {
             setCounter(counter - 1)
         }
     }
-    const increment = () =>{
-        setCounter (counter + 1)
+    const increment = () => {
+        setCounter(counter + 1)
     }
-
-    // const addToCart = () => {
-    //     console.log({...items, counter})
-    // }
-
 
     const addToCart = () => {
         if (counter > 0) {
-            const newItem = {
-                id: id,
-                name: name,
-                price: price,
-                quantity: counter
-            }
-            setCart([...cart, newItem])
-            setCounter(0)
-            console.log('Carrito actualizado:', cart)
+          const newItem = {
+            ...product,
+            quantity: counter,
+          };
+      
+          const updatedCart = [...cart, newItem];
+       
+          setCart(updatedCart);
+      
+          // Guardar el carrito en localStorage
+          localStorage.setItem('cart', JSON.stringify(updatedCart));
+      
+          console.log ("carrito es de:", updatedCart)
+          setCounter(0);
         }
-    }
+      };
 
     
+      
+
+    const goToCart = cart.length > 0
+
+
 
     return (
         <>
@@ -54,6 +61,9 @@ const ItemCount = ({id, name, price}) => {
             <div>
                 <ButtonGroup size='md' isAttached variant='outline'>
                     <Button onClick={addToCart}> Agregar al carrito </Button>
+                    <Link to={"/cart"}>
+                        <Button isDisabled={!goToCart}>Ir a mi Carrito</Button>
+                    </Link>
                 </ButtonGroup>
             </div>
 
