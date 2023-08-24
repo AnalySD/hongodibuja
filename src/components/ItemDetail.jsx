@@ -4,10 +4,10 @@ import { Card, Center, CardBody, Heading, Stack, Text, Divider, CardFooter, Butt
 import ItemCount from './itemCount'
 
 
-const ItemDetail = ({ productS }) => {
+const ItemDetail = ({ products }) => {
 
   const { id } = useParams()
-  const filteredProducts = productS.filter((product) => product.id == id)
+  const filteredProducts = products.filter((product) => product.id == id)
   
   
 
@@ -32,7 +32,7 @@ const ItemDetail = ({ productS }) => {
                 <CardFooter>
                 <ButtonGroup size='md' isAttached variant='outline'>
 
-                  <ItemCount product={p} />
+                  <ItemCount item={p} />
 
                   </ButtonGroup>
 

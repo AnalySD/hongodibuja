@@ -7,41 +7,46 @@ import { Link } from 'react-router-dom'
 
 
 
-const ItemCount = ({ product }) => {
+const ItemCount = ({ item }) => {
 
-    const [cart, setCart] = useContext(CartContext)
-    const [counter, setCounter] = useState(0)
+    const {cart, setCart} = useContext(CartContext)
+    const [quantity, setquantity] = useState(0)
 
     const decrement = () => {
-        if (counter > 0) {
-            setCounter(counter - 1)
+        if (quantity > 0) {
+            setquantity(quantity - 1)
         }
     }
     const increment = () => {
-        setCounter(counter + 1)
+        setquantity(quantity + 1)
     }
 
-    const addToCart = () => {
-        if (counter > 0) {
-          const newItem = {
-            ...product,
-            quantity: counter,
-          };
-      
-          const updatedCart = [...cart, newItem];
-       
-          setCart(updatedCart);
-      
-          // Guardar el carrito en localStorage
-          localStorage.setItem('cart', JSON.stringify(updatedCart));
-      
-          console.log ("carrito es de:", updatedCart)
-          setCounter(0);
-        }
-      };
+    // const addToCart = (item, quantity) => {
+    //     const updatedCart = [...cart]
+    //     const existingItemIndex = updatedCart.findIndex(item => item.id === item.id)
+    //     if (existingItemIndex !== -1) {
+    //         updatedCart[existingItemIndex].quantity += quantity;
+    //     } else {
+    //         updatedCart.push({ ...item, quantity })
+    //     }
+    //     setCart(updatedCart)
+    // }
 
-    
+    const addToCart = () => {
+        if (quantity > 0) {
+          const newItem = {
+            ...item,
+            quantity: quantity,
+          }
       
+          const updatedCart = [...cart, newItem]
+       
+          setCart(updatedCart)
+      
+  
+          console.log ("carrito es de:", updatedCart)
+        }
+      }
 
     const goToCart = cart.length > 0
 
@@ -53,9 +58,9 @@ const ItemCount = ({ product }) => {
             <div>
                 <ButtonGroup size='md' isAttached variant='outline'>
                     <IconButton onClick={decrement} icon={<MinusIcon />} />
-                    <Button>{counter}</Button>
+                    <Button>{quantity}</Button>
                     <IconButton onClick={increment} icon={<AddIcon />} />
-                    <IconButton onClick={() => setCounter(0)} icon={<RepeatClockIcon />} />
+                    <IconButton onClick={() => setquantity(0)} icon={<RepeatClockIcon />} />
                 </ButtonGroup>
             </div>
             <div>

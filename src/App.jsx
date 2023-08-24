@@ -5,6 +5,8 @@ import Cart from './components/Cart'
 import ItemListContainer from './components/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import ShopCartContext from './context/ShopCartContext'
+import ComponenteA from './components/ComponenteA'
+import SendOrder from './components/SendOrder'
 
 
 const App = () => {
@@ -21,9 +23,13 @@ const App = () => {
 
         <Route exact path='/cart' element={<Cart/>}/>
 
-        <Route exact path='/item/:id' element= {<ItemDetailContainer/>}/>
+        <Route exact path='/catalogue' element= {<ComponenteA/>} />
 
         <Route exact path='/category/:category' element= {<ItemListContainer/>}/>
+
+        <Route exact path='/item/:id' element= {<ItemDetailContainer/>}/>
+
+        <Route exact path='/checkout' element={<SendOrder/>} />
 
       </Routes>
 
