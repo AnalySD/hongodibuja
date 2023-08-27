@@ -1,40 +1,43 @@
-import React from 'react'
-import ItemList from './ItemList'
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
+import React, { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom'
+import ItemList from './ItemList'
 
 const ItemListContainer = () => {
-    const {category} = useParams()
 
-    const productList = [
-        { id: 1, name: "Producto A", description: "Descripcion de producto A", price: 2500, category: "cat1" },
-        { id: 2, name: "Producto B", description: "Descripcion de producto B", price: 2000, category: "cat2" },
-        { id: 3, name: "Producto C", description: "Descripcion de producto C", price: 3500, category: "cat3" },
-        { id: 4, name: "Producto D", description: "Descripcion de producto D", price: 2000, category: "cat2" },
-        { id: 5, name: "Producto E", description: "Descripcion de producto E", price: 3500, category: "cat3" },
-        { id: 6, name: "Producto F", description: "Descripcion de producto F", price: 3500, category: "cat3" },
-        { id: 7, name: "Producto G", description: "Descripcion de producto G", price: 2500, category: "cat1" },
-        { id: 8, name: "Producto H", description: "Descripcion de producto H", price: 2000, category: "cat2" },
-        { id: 9, name: "Producto I", description: "Descripcion de producto I", price: 2500, category: "cat1" },
-    ]
-    const getProducts = new Promise((resolve, reject) => {
-        if (productList.length > 0) {
-            setTimeout(() => {
-                resolve(productList)
-            }, 2000)
-        } else {
-            reject(new Error("No hay productos"))
-        }
-    })
-    getProducts
-        .then((res) => console.log(res)).catch(error => console.error(error))
+    const [products, setProducts] = useState([])
+    const { category } = useParams()
+    console.log("cl de productos", products)
 
-        const filteredProducts = productList.filter((product) => product.category === category)
+    useEffect(() => {
+        const db = getFirestore() // llamo a la base de datos
+        const itemsCollection = category
+        ? query (collection (db, "dibujos"), where ("category", "==", category))
+        :collection (db, "dibujos")
+
+        getDocs(itemsCollection).then((response) => {
+            const prodCategory = response.docs.map((doc) => {
+                const data = doc.data()
+                return { id: doc.id, ...data}
+            })
+            setProducts(prodCategory)
+            console.log ("cl de docs", prodCategory)
+        })
+        .catch ((error)=>{
+            console.log (error)
+        })
+    }, [category])
+
+    
+
 
     return (
         <>
-            <ItemList productS={filteredProducts} />
+         <ItemList products={products} /> 
+            
         </>
     )
+    
 }
 
 export default ItemListContainer

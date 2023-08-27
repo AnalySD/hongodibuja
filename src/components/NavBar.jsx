@@ -20,17 +20,21 @@ const NavBar = () => {
 
 
             <MenuItem> 
-            <Link to= {`/category/${'cat1'}`}> Categoria A </Link>
+            <Link to= {`/category/${'pokemon'}`}> Pokemon </Link>
             </MenuItem>
 
 
             <MenuItem> 
-            <Link to= {`/category/${'cat2'}`}> Categoria B </Link>
+            <Link to= {`/category/${'retro'}`}> Retro  </Link>
             </MenuItem>
 
 
             <MenuItem> 
-            <Link to= {`/category/${'cat3'}`}> Categoria C </Link>
+            <Link to= {`/category/${'city pop'}`}> City Pop </Link>
+            </MenuItem>
+
+            <MenuItem> 
+            <Link to= {`/category/${'chibis'}`}> Chibis </Link>
             </MenuItem>
 
           </MenuList>
