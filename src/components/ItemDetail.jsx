@@ -1,38 +1,37 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { Card, Center, CardBody, Heading, Stack, Text, Divider, CardFooter, ButtonGroup } from '@chakra-ui/react'
+import { Card, Center, CardBody, Heading, Stack, Text, Divider, CardFooter, ButtonGroup, Img } from '@chakra-ui/react'
 import ItemCount from './itemCount'
 
 
 const ItemDetail = ({ products }) => {
 
   const { id } = useParams()
-  const filteredProducts = products.filter((product) => product.id == id)
+  
   
   
 
   return (
     <>
       <h1>Detalle de los Productos</h1>
-      {filteredProducts.map((p) => {
-        return (
-          <div key={p.id}>
+      
+          <div key={id}>
             <Center>
               <Card>
                 <CardBody>
-                  <Heading size='md'>{p.name}</Heading>
+                  <Heading size='md'>{products.name}</Heading>
+                  <Img src={products.image} alt={products.name} borderRadius='sm' />
                   <Stack mt='6' spacing='3'>
-                    <Text>  {p.description} </Text>
-                    <Text> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati sed dicta culpa sapiente exercitationem alias optio voluptatem veniam nemo </Text>
+                    <Text>  {products.description} </Text>                    
                     <Divider />
-                    <Text> {p.price}</Text>
-                    <Text> {p.category}</Text>
+                    <Text> {products.price}</Text>
+                    <Text> {products.category}</Text>
                   </Stack>
                 </CardBody>
                 <CardFooter>
                 <ButtonGroup size='md' isAttached variant='outline'>
 
-                  <ItemCount item={p} />
+                  <ItemCount item={products}/>
 
                   </ButtonGroup>
 
@@ -40,8 +39,8 @@ const ItemDetail = ({ products }) => {
               </Card>
             </Center>
           </div>
-        )
-      })}
+        
+      
     </>
   )
 }

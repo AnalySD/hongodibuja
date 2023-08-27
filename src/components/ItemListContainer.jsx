@@ -6,8 +6,7 @@ import ItemList from './ItemList'
 const ItemListContainer = () => {
 
     const [products, setProducts] = useState([])
-    const { category } = useParams()
-    console.log("cl de productos", products)
+    const { category } = useParams()    
 
     useEffect(() => {
         const db = getFirestore() // llamo a la base de datos
@@ -21,7 +20,6 @@ const ItemListContainer = () => {
                 return { id: doc.id, ...data}
             })
             setProducts(prodCategory)
-            console.log ("cl de docs", prodCategory)
         })
         .catch ((error)=>{
             console.log (error)
@@ -29,8 +27,6 @@ const ItemListContainer = () => {
     }, [category])
 
     
-
-
     return (
         <>
          <ItemList products={products} /> 

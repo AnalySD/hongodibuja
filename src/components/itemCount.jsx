@@ -5,10 +5,7 @@ import { CartContext } from "../context/ShopCartContext"
 import { Link } from 'react-router-dom'
 
 
-
-
 const ItemCount = ({ item }) => {
-
     const {cart, setCart} = useContext(CartContext)
     const [quantity, setquantity] = useState(0)
 
@@ -20,17 +17,6 @@ const ItemCount = ({ item }) => {
     const increment = () => {
         setquantity(quantity + 1)
     }
-
-    // const addToCart = (item, quantity) => {
-    //     const updatedCart = [...cart]
-    //     const existingItemIndex = updatedCart.findIndex(item => item.id === item.id)
-    //     if (existingItemIndex !== -1) {
-    //         updatedCart[existingItemIndex].quantity += quantity;
-    //     } else {
-    //         updatedCart.push({ ...item, quantity })
-    //     }
-    //     setCart(updatedCart)
-    // }
 
     const addToCart = () => {
         if (quantity > 0) {
