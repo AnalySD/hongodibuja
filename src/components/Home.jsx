@@ -18,7 +18,7 @@ const Home = () => {
 
       <Stack direction='row' spacing={4}>
         <Link to={`/catalogue`}>
-          <Button colorScheme='blue' variant='custom'>
+          <Button leftIcon={<ViewIcon />} colorScheme='purple' variant='solid'>
             Go Shopping!
           </Button>
         </Link>

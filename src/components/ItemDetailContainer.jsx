@@ -7,16 +7,12 @@ import ItemDetail from './ItemDetail'
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState ([])
     const {id} = useParams()
-    console.log ("cl de item detail producto", product)
-  
-  
+
     useEffect (() => {
       const db = getFirestore()
       const oneItem = doc(db, "dibujos", `${id}` ) 
       
-  
       getDoc (oneItem).then((snapshot) => {
-  
         if(snapshot.exists()) {
           const docs = snapshot.data()
           setProduct(docs)

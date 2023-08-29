@@ -16,29 +16,24 @@ const SendOrder = () => {
   const ordersCollection = collection(db, "orders")
 
   const SendOrder = async ({ name, surname, phone, email }) => {
-    const total = totalPrice(); 
-    console.log("el precio total de total price:", total);
+    const total = totalPrice() 
 
     const order = {
       buyer: { name, surname, phone, email },
       items: cart,
-      total: total // Usa el valor numérico obtenido de totalPrice
+      total: total 
     }
-
     try {
-      const docRef = await addDoc(ordersCollection, order);
-      setOrderId(docRef.id);
+      const docRef = await addDoc(ordersCollection, order)
+      setOrderId(docRef.id)
     } catch (error) {
-      console.error("Error al enviar la order:", error);
+      console.error("Error al enviar la order:", error)
     }
   }
-
   const handleSubmit = (e) => {
-    e.preventDefault();
-    SendOrder({ name, surname, phone, email });
+    e.preventDefault()
+    SendOrder({ name, surname, phone, email })
   }
-
-
 
   return (
     <>

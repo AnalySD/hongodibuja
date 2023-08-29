@@ -5,7 +5,6 @@ import { Box, Flex, Spacer, Text } from '@chakra-ui/react'
 import logocarrito from "../assets/fullbasket.png"
 
 const CartWidget = () => {
-
     const {cart} = useContext(CartContext);
 
     const quantity = cart.reduce((acc,curr) => {
@@ -17,8 +16,7 @@ const CartWidget = () => {
     return (
         <Flex>
             <Box>
-                <img src={logocarrito} />
-                
+                <img src={logocarrito} />                
             </Box>
             <Spacer />
             <Box>

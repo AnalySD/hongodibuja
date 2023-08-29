@@ -30,7 +30,7 @@ const ItemCount = ({ item }) => {
           setCart(updatedCart)
       
   
-          console.log ("carrito es de:", updatedCart)
+        //   console.log ("carrito es de:", updatedCart) agregar un sw alert
         }
       }
 

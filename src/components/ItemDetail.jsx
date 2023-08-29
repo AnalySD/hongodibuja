@@ -1,15 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { Card, Center, CardBody, Heading, Stack, Text, Divider, CardFooter, ButtonGroup, Img } from '@chakra-ui/react'
-import ItemCount from './itemCount'
+import ItemCount from './ItemCount'
 
 
 const ItemDetail = ({ products }) => {
 
   const { id } = useParams()
-  
-  
-  
 
   return (
     <>
