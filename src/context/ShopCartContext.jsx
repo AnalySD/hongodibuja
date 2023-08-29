@@ -20,8 +20,10 @@ export const ShopCartProvider = ({ children }) => {
 
   // Muestra el precio total del carrito 
   const totalPrice = () => {
-      return cart.reduce((acc, item) => acc + item.quantity * item.price, 0)
+    const total = cart.reduce((acc, item) => acc + item.quantity * item.price, 0);
+    return parseFloat(total.toFixed(2))
   }
+  
 
 
   // Vaciar carrito al terminar la compra
