@@ -3,6 +3,7 @@ import { Button, Input, InputGroup, InputLeftElement } from "@chakra-ui/react"
 import { CartContext } from "../context/ShopCartContext"
 import React, { useState, useContext } from 'react'
 import { PhoneIcon } from "@chakra-ui/icons"
+import Swal from "sweetalert2"
 
 const SendOrder = () => {
   const { cart, totalPrice } = useContext(CartContext)
@@ -27,7 +28,11 @@ const SendOrder = () => {
       const docRef = await addDoc(ordersCollection, order)
       setOrderId(docRef.id)
     } catch (error) {
-      console.error("Error al enviar la order:", error)
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al enviar la orden',
+        text: 'Hubo un problema al enviar la orden. Por favor, intentalo nuevamente.',
+      })
     }
   }
   const handleSubmit = (e) => {
