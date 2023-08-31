@@ -2,6 +2,7 @@ import { collection, getDocs, getFirestore, query, where } from "firebase/firest
 import React, { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom'
 import ItemList from './ItemList'
+import Loader from './Loader'
 
 const ItemListContainer = () => {
 
@@ -26,10 +27,19 @@ const ItemListContainer = () => {
         })
     }, [category])
 
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+      setTimeout(() => {
+        setLoading(false) // Cambia el estado a false cuando la carga haya finalizado
+      }, 5000)
+    }, [])
+
     
     return (
         <>
-         <ItemList products={products} /> 
+        { loading ? (<Loader /> ) :
+        ( <ItemList products={products} />  )}
             
         </>
     )

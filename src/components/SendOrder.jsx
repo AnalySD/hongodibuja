@@ -27,11 +27,17 @@ const SendOrder = () => {
     try {
       const docRef = await addDoc(ordersCollection, order)
       setOrderId(docRef.id)
+      Swal.fire({
+        icon: 'success',
+        title: 'Pedido enviado!',
+        text: `Tu número de pedido es: ${docRef.id}. Por favor anota ese codigo ya que sera solicitado como referencia para el seguimiento de tu pedido!`,
+        confirmButtonText: 'Aceptar',
+      })
     } catch (error) {
       Swal.fire({
         icon: 'error',
-        title: 'Error al enviar la orden',
-        text: 'Hubo un problema al enviar la orden. Por favor, intentalo nuevamente.',
+        title: 'Error procesando la orden',
+        text: 'Hubo un problema al intentar enviar tu pedido. Por favor, intentalo nuevamente.',
       })
     }
   }
