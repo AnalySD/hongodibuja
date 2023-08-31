@@ -16,12 +16,12 @@ const SendOrder = () => {
   const ordersCollection = collection(db, "orders")
 
   const SendOrder = async ({ name, surname, phone, email }) => {
-    const total = totalPrice() 
+    const total = totalPrice()
 
     const order = {
       buyer: { name, surname, phone, email },
       items: cart,
-      total: total 
+      total: total
     }
     try {
       const docRef = await addDoc(ordersCollection, order)
@@ -41,26 +41,30 @@ const SendOrder = () => {
       <h2>Completa los siguientes datos </h2>
       <p>A la brevedad nos pondremos en contacto para coordinar tu envio!</p>
 
-      <form onSubmit={handleSubmit} >
-        <Input type="text" placeholder="Nombre" value={name}
-          onChange={(e) => setName(e.target.value)} />
+      <div className='Checkout-form'>
 
-        <Input type="text" placeholder="Apellido" value={surname}
-          onChange={(e) => setSurname(e.target.value)} />
 
-        <Input type="text" placeholder="Email" value={email}
-          onChange={(e) => setEmail(e.target.value)} />
+        <form onSubmit={handleSubmit} >
+          <Input type="text" placeholder="Nombre" value={name}
+            onChange={(e) => setName(e.target.value)} />
 
-        <InputGroup>
-          <InputLeftElement pointerEvents='none'>
-            <PhoneIcon color='gray.300' />
-          </InputLeftElement>
-          <Input type='tel' placeholder='Phone number' value={phone}
-            onChange={(e) => setPhone(e.target.value)} />
-        </InputGroup>
+          <Input type="text" placeholder="Apellido" value={surname}
+            onChange={(e) => setSurname(e.target.value)} />
 
-        <Button type="submit" colorScheme='teal' variant='outline'> Enviar informacion </Button>
-      </form>
+          <Input type="text" placeholder="Email" value={email}
+            onChange={(e) => setEmail(e.target.value)} />
+
+          <InputGroup>
+            <InputLeftElement pointerEvents='none'>
+              <PhoneIcon color='gray.300' />
+            </InputLeftElement>
+            <Input type='tel' placeholder='Phone number' value={phone}
+              onChange={(e) => setPhone(e.target.value)} />
+          </InputGroup>
+
+          <Button className="Checkout-btn" type="submit" colorScheme='teal' variant='outline'> Enviar informacion </Button>
+        </form>
+      </div>
 
       <p> Tu codigo de orden es: {orderId}  </p>
 

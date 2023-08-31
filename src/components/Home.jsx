@@ -16,13 +16,13 @@ const Home = () => {
 
       <p> Te invito a que conozcas un poco de lo que hago </p>
 
-      <Stack direction='row' spacing={4}>
+    
         <Link to={`/catalogue`}>
-          <Button leftIcon={<ViewIcon />} colorScheme='purple' variant='solid'>
+          <Button className= "Home-btn" leftIcon={<ViewIcon />} colorScheme='purple' variant='solid'>
             Go Shopping!
           </Button>
         </Link>
-      </Stack>
+     
 
 
 

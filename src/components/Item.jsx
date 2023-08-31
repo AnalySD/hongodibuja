@@ -6,8 +6,8 @@ import React from 'react'
 const Item = ({ id, name, description, price, image }) => {
 
   return (
-    <Center>
-      <Card maxW='lg'>
+    <Center className='card'>
+      <Card maxW='sm'>
         <CardBody>
           <Heading size='sm'>{name}</Heading>
           <Image src={image} alt={name} borderRadius='lg' />

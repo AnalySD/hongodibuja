@@ -7,13 +7,13 @@ import { Link } from 'react-router-dom'
 const NavBar = () => {
   return (
     <Flex className='NavBar'>
-      <Box p="2" bg="#0f1d5c" color="#f0e2e2">
+      <Box className='NavBar-logo' p="2" bg="#0f1d5c" color="#f0e2e2">
         <Link to={"/"}> | HongoDibuja ~ Store | </Link>
       </Box>
       <Spacer />
       <Box>
         <Menu>
-          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+          <MenuButton className="NavBar-btn" as={Button} rightIcon={<ChevronDownIcon />}>
             Desplegame
           </MenuButton>
           <MenuList>

@@ -2,47 +2,18 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   line-height: 1.5;
   font-weight: 400;
-
+  text-align: center;
+  
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(233, 176, 239, 0.87);
   background-color: #520707;
-
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
-
-body {
-  /* border: 5px solid red; */
-  place-items: center;
-}
-
-.NavBar {
-  background-color: #0a0a0a;
-  display: flex;
-}
-
-
-.greeting {
-  background-color: rgb(205, 178, 230);
-  color: rgba(37, 12, 35, 0.87);
-  display: flex;
-  place-content: center;
-}
-
-/*a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}*/
-
-
 
 h1 {
   font-size: 2rem;
@@ -67,6 +38,104 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+
+
+/*-------------------------Navbar-------------------------*/
+
+.NavBar {
+  background-color: #0a0a0a;
+  display: flex;
+  
+}
+
+.NavBar-btn {
+  margin-top: 15px;
+}
+
+.NavBar-logo{
+  margin: 10px
+}
+
+/*-------------------------Home-------------------------*/
+
+.Home-btn{
+  display: flex;
+  margin: 15px;
+
+}
+
+/*-------------------------Catalogue-------------------------*/
+
+
+.card .card-image {
+  gap: 40px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  text-align: center;
+  font-size: 60px;
+  display: block;
+  width: 1fr;
+}
+
+.card:hover {
+  transition: .5s ease-in;
+  box-shadow: 5px 20px 60px rgba(8, 8, 8, 0.519);
+}
+
+
+/*-------------------------Checkout-------------------------*/
+.Checkout-form {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  justify-content: center;
+}
+
+.Checkout-btn{
+  display: flex;
+  margin: 30px ;
+}
+
+.Checkout-btn:hoover{
+  border-color: darkgreen !important;
+  border-radius:50% ;
+}
+
+
+
+/*-------------------------CardItems-------------------------*/
+
+
+
+body {
+  /* border: 5px solid red; */
+  place-items: center;
+}
+
+
+
+.greeting {
+  background-color: rgb(205, 178, 230);
+  color: rgba(37, 12, 35, 0.87);
+  display: flex;
+  place-content: center;
+}
+
+/*a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}*/
+
+
+
 
 /*@media (prefers-color-scheme: light) {
   :root {

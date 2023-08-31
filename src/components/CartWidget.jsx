@@ -14,12 +14,12 @@ const CartWidget = () => {
 
 
     return (
-        <Flex>
-            <Box>
+        <Flex >
+            <Box >
                 <img src={logocarrito} />                
             </Box>
             <Spacer />
-            <Box>
+            <Box className='NavBar-logo'>
             <Text>carrito  <ArrowRightIcon /> {quantity}</Text>  
             </Box>
         </Flex>
