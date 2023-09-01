@@ -4,7 +4,7 @@ const Loader = () => {
   return (
     <div className="loader">
       <div className="pencil">
-        <p>Moomentitoo...</p>
+        <p>Moomentitoo..</p>
       </div>
       <div className="top"></div>
       <div className="stroke"></div>
