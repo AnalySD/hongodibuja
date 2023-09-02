@@ -19,22 +19,22 @@ const NavBar = () => {
           <MenuList>
 
 
-            <MenuItem> 
-            <Link to= {`/category/${'pokemon'}`}> Pokemon </Link>
+            <MenuItem>
+              <Link to={`/category/${'pokemon'}`}> Pokemon </Link>
             </MenuItem>
 
 
-            <MenuItem> 
-            <Link to= {`/category/${'retro'}`}> Retro  </Link>
+            <MenuItem>
+              <Link to={`/category/${'retro'}`}> Retro  </Link>
             </MenuItem>
 
 
-            <MenuItem> 
-            <Link to= {`/category/${'city pop'}`}> City Pop </Link>
+            <MenuItem>
+              <Link to={`/category/${'city pop'}`}> City Pop </Link>
             </MenuItem>
 
-            <MenuItem> 
-            <Link to= {`/category/${'chibis'}`}> Chibis </Link>
+            <MenuItem>
+              <Link to={`/category/${'chibis'}`}> Chibis </Link>
             </MenuItem>
 
           </MenuList>
@@ -42,7 +42,7 @@ const NavBar = () => {
       </Box>
       <Spacer />
       <Box p="2" bg="#0f1d5c" color="#f0e2e2">
-      <Link to= {"/cart"}> <CartWidget /> </Link>
+        <Link to={"/cart"}> <CartWidget /> </Link>
       </Box>
     </Flex>
   )

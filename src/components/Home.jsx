@@ -13,19 +13,13 @@ const Home = () => {
       <h3>pero en mis tiempos libres me gusta mucho hacer dibujitos</h3>
       <br />
 
-
       <p> Te invito a que conozcas un poco de lo que hago </p>
 
-    
-        <Link to={`/catalogue`}>
-          <Button className= "Home-btn" leftIcon={<ViewIcon />} colorScheme='purple' variant='solid'>
-            Go Shopping!
-          </Button>
-        </Link>
-     
-
-
-
+      <Link to={`/catalogue`}>
+        <Button className="Home-btn" leftIcon={<ViewIcon />} colorScheme='purple' variant='solid'>
+          Go Shopping!
+        </Button>
+      </Link>
 
       <br />
 

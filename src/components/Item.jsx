@@ -6,31 +6,35 @@ import React from 'react'
 const Item = ({ id, name, description, price, image }) => {
 
   return (
-    <Center className='card'>
-      <Card maxW='sm'>
-        <CardBody>
-          <Heading size='sm'>{name}</Heading>
-          <Image src={image} alt={name} borderRadius='lg' />
+    <>
+      <div className='cardContainer'>
+        <Card maxW='sm'>
+          <CardBody>
+            <Heading size='sm'>{name}</Heading>
+            <div className='cardImage'>
+              <Image src={image} alt={name} borderRadius='lg' className='image' />
+            </div>
 
-          <Stack mt='6' spacing='3'>
-            <Text> {description} </Text>
-            <Text> $ {price}</Text>
-          </Stack>
-          
-          <Divider />
+            <Stack mt='6' spacing='3'>
+              <Text> {description} </Text>
+              <Text> $ {price}</Text>
+            </Stack>
 
-          <CardFooter>
-            <Link to={`/item/${id}`}>
-              <Button variant='solid' colorScheme='purple'>
-                Detalles
-              </Button>
-            </Link>
-          </CardFooter>
+            <Divider />
 
-        </CardBody>
-      </Card>
-    </Center>
-
+            <div className='cardBtn'>
+              <CardFooter >
+                <Link to={`/item/${id}`}>
+                  <Button variant='solid' >
+                    Detalles
+                  </Button>
+                </Link>
+              </CardFooter>
+            </div>
+          </CardBody>
+        </Card>
+      </div>
+    </>
   )
 }
 

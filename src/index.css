@@ -3,16 +3,21 @@
   line-height: 1.5;
   font-weight: 400;
   text-align: center;
-  
   color-scheme: light dark;
-  color: rgba(233, 176, 239, 0.87);
   background-color: #af3c8edb;
-  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+.background {
+  height: 100%;
+  min-height: 100%;
+  background-image: url(./assets/pngtree-cutemushroom.png);
+  background-repeat: repeat;
+  background-size: cover;
 }
 
 h1 {
@@ -27,37 +32,39 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #b125f1;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
 
 /*-------------------------Navbar-------------------------*/
 
 .NavBar {
   background-color: #0a0a0a;
   display: flex;
-  
+
 }
 
 .NavBar-btn {
   margin-top: 15px;
 }
 
-.NavBar-logo{
+.NavBar-logo {
   margin: 10px
 }
 
 /*-------------------------Home-------------------------*/
 
-.Home-btn{
+.Home-btn {
   display: flex;
   margin: 15px;
 
@@ -65,24 +72,102 @@ button:focus-visible {
 
 /*-------------------------Catalogue-------------------------*/
 
-
-.card .card-image {
-  gap: 40px;
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  text-align: center;
-  font-size: 60px;
-  display: block;
-  width: 1fr;
+.cardContainer {
+  position: relative;
+  top: 25px;
+  height: fit-content;
+  border: 2px solid #80047c;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px;
+  margin: 15px 15px;
 }
 
-.card:hover {
+.cardContainer:hover {
   transition: .5s ease-in;
-  box-shadow: 5px 20px 60px rgba(8, 8, 8, 0.519);
+  box-shadow: 15px 20px 60px rgba(8, 8, 8, 0.655);
 }
+
+.cardContainer button {
+  background-image: linear-gradient(to bottom right, indigo, violet);
+  color: #dedede;
+}
+
+.cardContainer button:hover {
+  background-image: linear-gradient(to bottom right, violet, indigo);
+  transition: .3s ease-in;
+  box-shadow: 5px 5px 15px rgba(86, 55, 85, 0.655);
+}
+
+.cardBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.cardDetail {
+  width: fit-content;
+  border: 2px solid #80047c;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px;
+  margin: auto;
+}
+
+.cardDetailImage {
+  border: 2px solid #80047c;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px;
+}
+
+.cardDetail button {
+  background-image: linear-gradient(to bottom right, indigo, violet);
+}
+
+.cardDetail button:hover {
+  background-image: linear-gradient(to bottom right, violet, indigo);
+  transition: .3s ease-in;
+  box-shadow: 5px 5px 15px rgba(86, 55, 85, 0.655);
+}
+
+.cardImage {
+  display: flex;
+  position: relative;
+  border: 2px solid #80047c;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px;
+  width: 325px;
+  height: 342px;
+  margin-top: 20px
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.cardContainerList {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  height: 100%;
+  min-height: 100vh;
+  padding-bottom: 75px;
+}
+
+
+/*-------------------------CartItems-------------------------*/
+
+.countBtn {
+  background-image: linear-gradient(to bottom right, rgb(0, 71, 118), rgb(130, 225, 238))
+}
+
+.countBtn:hover {
+  background-image: linear-gradient(to bottom right, rgb(130, 225, 238), rgb(0, 71, 118));
+  transition: .3s ease-in;
+  box-shadow: 5px 5px 15px rgba(25, 58, 42, 0.655)
+}
+
 
 
 /*-------------------------Checkout-------------------------*/
@@ -93,29 +178,23 @@ button:focus-visible {
   justify-content: center;
 }
 
-.Checkout-btn{
+.Checkout-btn {
   display: flex;
-  margin: 30px ;
+  margin: 30px;
 }
 
-.Checkout-btn:hoover{
+.Checkout-btn:hoover {
   border-color: darkgreen !important;
-  border-radius:50% ;
+  border-radius: 50%;
 }
-
-
-
-/*-------------------------CardItems-------------------------*/
-
-
 
 
 /*-------------------------Loader-------------------------*/
 .loader {
-  position:  fixed;
+  position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   animation: animate 8s linear infinite;
 }
 
@@ -190,7 +269,7 @@ button:focus-visible {
   position: absolute;
   top: 50%;
   left: calc(100% - 80px);
-  transform: translate(-50%,-50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
   border: 5px solid transparent;
   border-left-color: #000;
   border-top-color: #000;
@@ -202,16 +281,13 @@ button:focus-visible {
 
 @keyframes animate {
   0% {
-    transform: translate(-50%,-50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 
   100% {
-    transform: translate(-50%,-50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
 }
-
-
-
 
 
 .greeting {
@@ -220,6 +296,3 @@ button:focus-visible {
   display: flex;
   place-content: center;
 }
-
-
-

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 
 const ItemCount = ({ item }) => {
-    const {cart, setCart} = useContext(CartContext)
+    const { cart, setCart } = useContext(CartContext)
     const [quantity, setquantity] = useState(0)
 
     const decrement = () => {
@@ -20,28 +20,23 @@ const ItemCount = ({ item }) => {
 
     const addToCart = () => {
         if (quantity > 0) {
-          const newItem = {
-            ...item,
-            quantity: quantity,
-          }
-      
-          const updatedCart = [...cart, newItem]
-       
-          setCart(updatedCart)
-      
-  
-        //   console.log ("carrito es de:", updatedCart) agregar un sw alert
+            const newItem = {
+                ...item,
+                quantity: quantity,
+            }
+
+            const updatedCart = [...cart, newItem]
+
+            setCart(updatedCart)
         }
-      }
+    }
 
     const goToCart = cart.length > 0
-
-
 
     return (
         <>
             <h3> Cuantos queres?  → </h3>
-            <div>
+            <div >
                 <ButtonGroup size='md' isAttached variant='outline'>
                     <IconButton onClick={decrement} icon={<MinusIcon />} />
                     <Button>{quantity}</Button>
@@ -52,9 +47,11 @@ const ItemCount = ({ item }) => {
             <div>
                 <ButtonGroup size='md' isAttached variant='outline'>
                     <Button onClick={addToCart}> Agregar al carrito </Button>
-                    <Link to={"/cart"}>
-                        <Button isDisabled={!goToCart}>Ir a mi Carrito</Button>
-                    </Link>
+                    <div className='countBtn'>
+                        <Link to={"/cart"}>
+                            <Button isDisabled={!goToCart}>Ir a mi Carrito</Button>
+                        </Link>
+                    </div>
                 </ButtonGroup>
             </div>
 
