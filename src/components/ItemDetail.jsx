@@ -34,8 +34,6 @@ const ItemDetail = ({ products }) => {
           </Card>
         </Center>
       </div>
-
-
     </>
   )
 }

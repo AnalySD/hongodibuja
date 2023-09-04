@@ -36,15 +36,10 @@ button {
   transition: border-color 0.25s;
 }
 
-button:hover {
-  border-color: #b125f1;
-}
-
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
 
 /*-------------------------Navbar-------------------------*/
 
@@ -105,30 +100,6 @@ button:focus-visible {
   height: 100%;
 }
 
-.cardDetail {
-  width: fit-content;
-  border: 2px solid #80047c;
-  border-radius: 5px;
-  box-shadow: 5px 5px 15px;
-  margin: auto;
-}
-
-.cardDetailImage {
-  border: 2px solid #80047c;
-  border-radius: 10px;
-  box-shadow: 3px 3px 10px;
-}
-
-.cardDetail button {
-  background-image: linear-gradient(to bottom right, indigo, violet);
-}
-
-.cardDetail button:hover {
-  background-image: linear-gradient(to bottom right, violet, indigo);
-  transition: .3s ease-in;
-  box-shadow: 5px 5px 15px rgba(86, 55, 85, 0.655);
-}
-
 .cardImage {
   display: flex;
   position: relative;
@@ -155,27 +126,79 @@ button:focus-visible {
   padding-bottom: 75px;
 }
 
+.cardDetail {
+  width: fit-content;
+  border: 2px solid #80047c;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px;
+  margin: auto;
+}
+
+.cardDetailImage {
+  border: 2px solid #80047c;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px;
+}
+
+.cardDetail button {
+  background-image: linear-gradient(to bottom right, indigo, violet);
+}
+
+.cardDetail button:hover {
+  background-image: linear-gradient(to bottom right, violet, indigo);
+  transition: .3s ease-in;
+  box-shadow: 5px 5px 15px rgba(86, 55, 85, 0.655);
+}
+
 
 /*-------------------------CartItems-------------------------*/
 
-.countBtn {
-  background-image: linear-gradient(to bottom right, rgb(0, 71, 118), rgb(130, 225, 238))
+.cartBtn {
+  background-image: linear-gradient(to bottom right, rgb(0, 71, 118), rgb(131, 242, 146));
+  border: 2px solid #038434;
+  border-radius: 10px;
 }
 
-.countBtn:hover {
-  background-image: linear-gradient(to bottom right, rgb(130, 225, 238), rgb(0, 71, 118));
+.cartBtn:hover {
+  background-image: linear-gradient(to bottom right, rgb(131, 242, 146), rgb(0, 71, 118));
   transition: .3s ease-in;
-  box-shadow: 5px 5px 15px rgba(25, 58, 42, 0.655)
+  box-shadow: 5px 5px 15px rgba(25, 58, 42, 0.655);
+  border: 2px solid #038434;
+  border-radius: 10px;
+
 }
 
+.cartBtnDelete {
+  background-image: linear-gradient(to bottom right, rgb(67, 0, 0), rgb(252, 60, 60));
+  color: darkgrey;
+  border-radius: 20px;
+  border: 2px solid rgb(97, 0, 0);
 
+}
+
+.cartBtnDelete:hover {
+  background-image: linear-gradient(to bottom right, rgb(252, 60, 60), rgb(67, 0, 0));
+  transition: .3s ease-in;
+  box-shadow: 5px 5px 15px rgba(58, 33, 25, 0.655);
+  border-radius: 20px;
+  border: 2px solid rgb(97, 0, 0);
+}
 
 /*-------------------------Checkout-------------------------*/
 .Checkout-form {
   display: flex;
-  flex-direction: row;
-  margin: 20px;
+  position: relative;
   justify-content: center;
+  flex-direction: column;
+  margin: 600px;
+  box-sizing: border-box;
+  border: 3px solid black;
+  border-radius: 4px;
+  background-color: rgba(227, 163, 238, 0.478);
+  height: 450px;
+  padding: 45px 45px 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .Checkout-btn {

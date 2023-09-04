@@ -7,14 +7,20 @@ export const ShopCartProvider = ({ children }) => {
 
   const [cart, setCart] = useState([])
 
-  
-    // Remover item del carrito
+    // Remover items del carrito
     const deleteItem = (id) => {
-      const updatedCart = cart.filter((item) => item.id !== id)
-      setCart(updatedCart)
-  }
-
-
+      const itemToRemoveIndex = cart.findIndex((item) => item.id === id)
+      if (itemToRemoveIndex !== -1) {
+        const updatedCart = [...cart]
+        const itemToRemove = updatedCart[itemToRemoveIndex]
+        if (itemToRemove.quantity > 1) {
+          updatedCart[itemToRemoveIndex] = { ...itemToRemove, quantity: itemToRemove.quantity - 1 }
+        } else {
+          updatedCart.splice(itemToRemoveIndex, 1)
+        }   
+        setCart(updatedCart)
+      }
+    }
   // Muestra la cantidad total de items
   const totalItems = () => cart.reduce( (acc, item) => acc + item.quantity, 0)
 
@@ -24,11 +30,8 @@ export const ShopCartProvider = ({ children }) => {
     return parseFloat(total.toFixed(2))
   }
   
-
-
   // Vaciar carrito al terminar la compra
   const clearCart = () => setCart([])
-
 
 
   return (

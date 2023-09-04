@@ -2,8 +2,10 @@ import { Button, ButtonGroup, Card, CardBody, CardFooter, Center, Divider, Headi
 import { CartContext } from "../context/ShopCartContext"
 import { Link } from "react-router-dom"
 import { useContext } from "react"
+import { useParams } from "react-router-dom"
 
 const Cart = () => {
+  const {id} = useParams()
   const { cart, deleteItem, totalPrice } = useContext(CartContext)
 
   if (cart.length === 0) {
@@ -23,7 +25,7 @@ const Cart = () => {
         <h1>Por aqui veras los itemos adquiridos</h1>
         {cart.map((item) => {
           return (
-            <div key={item.id}>
+            <div key={id}>
               <Center>
                 <Card>
                   <CardBody>
@@ -36,9 +38,9 @@ const Cart = () => {
                       <Text>  Sub-total: $ {item.price * item.quantity} </Text>
                     </Stack>
                   </CardBody>
-                  <CardFooter>
-                    <ButtonGroup size='md' isAttached variant='outline'>
-                      <Button variant="warning" onClick={() => deleteItem(item.id)}> Delete  </Button>
+                  <CardFooter >
+                    <ButtonGroup size='md' isAttached variant='outline' className="cartBtnDelete">
+                      <Button variant="warning" onClick={() => deleteItem(id)}> Delete  </Button>
                     </ButtonGroup>
                   </CardFooter>
                 </Card>
@@ -48,16 +50,19 @@ const Cart = () => {
         })}
 
         <Text>Total: $ {totalPrice()}</Text>
-        <div>
+        <ButtonGroup>
+
           <Link to={"/catalogue"}>
             <Button variant="warning">Continuar Comprando</Button>
           </Link>
 
+        <div className="cartBtn">
           <Link to={"/checkout"}>
             <Button variant="warning"> Confirmar Compra </Button>
           </Link>
 
         </div>
+        </ButtonGroup>
 
       </>
     )

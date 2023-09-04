@@ -36,24 +36,22 @@ const ItemCount = ({ item }) => {
     return (
         <>
             <h3> Cuantos queres?  → </h3>
-            <div >
+            
                 <ButtonGroup size='md' isAttached variant='outline'>
                     <IconButton onClick={decrement} icon={<MinusIcon />} />
                     <Button>{quantity}</Button>
                     <IconButton onClick={increment} icon={<AddIcon />} />
                     <IconButton onClick={() => setquantity(0)} icon={<RepeatClockIcon />} />
                 </ButtonGroup>
-            </div>
-            <div>
-                <ButtonGroup size='md' isAttached variant='outline'>
+            
+                    
                     <Button onClick={addToCart}> Agregar al carrito </Button>
-                    <div className='countBtn'>
                         <Link to={"/cart"}>
                             <Button isDisabled={!goToCart}>Ir a mi Carrito</Button>
                         </Link>
-                    </div>
-                </ButtonGroup>
-            </div>
+                
+               
+            
 
         </>
     )
